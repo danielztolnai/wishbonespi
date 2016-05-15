@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/linux,xilinxise
 
 ### Linux ###
@@ -85,3 +84,18 @@ xst/
 _ngo/
 _xmsgs/
 
+### Own ignores ###
+# Simulation
+fuse.xmsgs
+fuseRelaunch.cmd
+fuse.log
+isim.cmd
+isim.log
+isim/
+*isim_beh.exe
+*isim_beh.wdb
+xilinxsim.ini
+
+# Copyright
+# Microchip SPI EEPROM model (http://ww1.microchip.com/downloads/en/DeviceDoc/25xx020A%20Verilog%20Model.zip)
+25LC020A.v
