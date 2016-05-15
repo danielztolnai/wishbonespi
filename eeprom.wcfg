@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/dzt/Desktop/wishbonespi/tb_eeprom_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_eeprom" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/tb_eeprom/SO" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SO</obj_property>
+      <obj_property name="ObjectShortName">SO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/SI" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SI</obj_property>
+      <obj_property name="ObjectShortName">SI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/SCK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SCK</obj_property>
+      <obj_property name="ObjectShortName">SCK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/CS_N" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CS_N</obj_property>
+      <obj_property name="ObjectShortName">CS_N</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/RESET" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/WriteEnable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WriteEnable</obj_property>
+      <obj_property name="ObjectShortName">WriteEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/InstructionREAD" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionREAD</obj_property>
+      <obj_property name="ObjectShortName">InstructionREAD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/InstructionWREN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionWREN</obj_property>
+      <obj_property name="ObjectShortName">InstructionWREN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/InstructionWRITE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionWRITE</obj_property>
+      <obj_property name="ObjectShortName">InstructionWRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/WriteActive" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WriteActive</obj_property>
+      <obj_property name="ObjectShortName">WriteActive</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/MemoryByte00" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MemoryByte00[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemoryByte00[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/MemoryByte01" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MemoryByte01[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemoryByte01[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/MemoryByteFE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MemoryByteFE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemoryByteFE[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_eeprom/uut/MemoryByteFF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MemoryByteFF[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemoryByteFF[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>
