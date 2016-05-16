@@ -145,6 +145,11 @@ begin
    end
 end
 
+// SPI shift signal
+wire spi_shr_sh;
+assign spi_shr_sh = (state >= S_ZERO) & (state < S_LAST) &
+                    ( (spi_sck_fall) & (spi_mode[0] == 1'b0) | 
+                      (spi_sck_rise) & (spi_mode[0] == 1'b1)  );
 
 // Write FIFO
 wire wr_fifo_wr, wr_fifo_empty, wr_fifo_full;
@@ -230,6 +235,7 @@ shr spi_shr (
    .clk(clk),
    .rst(rst),
    .din(spi_miso),
+   .sh(spi_shr_sh),
    .ld(spi_load),
    .ld_data(wr_fifo_dout_ordered),
    .dout(spi_mosi),
