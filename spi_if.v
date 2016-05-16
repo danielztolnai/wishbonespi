@@ -41,6 +41,38 @@ end
 
 // SPI shift counter
 reg [2:0] cntr;
+// SCK frequency divider
+wire sck_cntr_en;
+assign sck_cntr_en = ~spi_ss;
+reg [7:0] sck_cntr;
+always @ (posedge clk)
+begin
+   if (rst)
+      sck_cntr <= 8'b0;
+   else if(sck_cntr == spi_baudrate)
+      sck_cntr <= 8'b0;
+   else if(sck_cntr_en)
+      sck_cntr <= sck_cntr + 1'b1;
+end
+
+// SCK reg
+reg spi_sck_reg;
+always @ (posedge clk)
+begin
+   if (rst)
+      spi_sck_reg <= 1'b0;
+   else if(~sck_cntr_en)
+      spi_sck_reg <= 1'b0;
+   else if(sck_cntr == spi_baudrate)
+      spi_sck_reg <= ~spi_sck_reg;
+end
+
+assign spi_sck = (spi_mode[1] == 1'b0) ? (spi_sck_reg & ~spi_ss) : (~spi_sck_reg & spi_ss);
+
+wire spi_sck_rise, spi_sck_fall;
+assign spi_sck_rise = (~spi_sck_reg) & (sck_cntr == spi_baudrate) & (sck_cntr_en);
+assign spi_sck_fall = ( spi_sck_reg) & (sck_cntr == spi_baudrate) & (sck_cntr_en);
+
 // State machine
 reg [3:0] state;
 parameter S_IDLE = 4'b0000;   // Idle
