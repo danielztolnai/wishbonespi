@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/dzt/Desktop/wishbonespi/tb_spi_if_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_spi_if" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="34" />
+   <wvobject fp_name="/tb_spi_if/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dout[8:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[8:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/ack" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ack</obj_property>
+      <obj_property name="ObjectShortName">ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_mosi" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_mosi</obj_property>
+      <obj_property name="ObjectShortName">spi_mosi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_sck" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_sck</obj_property>
+      <obj_property name="ObjectShortName">spi_sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_ss" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_ss</obj_property>
+      <obj_property name="ObjectShortName">spi_ss</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_miso" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_miso</obj_property>
+      <obj_property name="ObjectShortName">spi_miso</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/din" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">din[10:0]</obj_property>
+      <obj_property name="ObjectShortName">din[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/cmd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cmd</obj_property>
+      <obj_property name="ObjectShortName">cmd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/spi_baudrate" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_baudrate[7:0]</obj_property>
+      <obj_property name="ObjectShortName">spi_baudrate[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/wr" type="logic" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">wr</obj_property>
+      <obj_property name="ObjectShortName">wr</obj_property>
+      <obj_property name="label">wr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/rd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rd</obj_property>
+      <obj_property name="ObjectShortName">rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/wr_fifo/srl_shr[0]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[0,10:0]</obj_property>
+      <obj_property name="ObjectShortName">srl_shr[0,10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/wr_fifo_wr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_fifo_wr</obj_property>
+      <obj_property name="ObjectShortName">wr_fifo_wr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/wr_fifo_dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_fifo_dout[10:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_fifo_dout[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/wr_fifo_dout_ordered" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_fifo_dout_ordered[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_fifo_dout_ordered[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/wr_fifo/srl_shr[1]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[1,10:0]</obj_property>
+      <obj_property name="ObjectShortName">srl_shr[1,10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/spi_shr_dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_shr_dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">spi_shr_dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/spi_shr_sh" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_shr_sh</obj_property>
+      <obj_property name="ObjectShortName">spi_shr_sh</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/spi_load" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_load</obj_property>
+      <obj_property name="ObjectShortName">spi_load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/MemoryByteFE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MemoryByteFE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemoryByteFE[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/InstructionREAD" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionREAD</obj_property>
+      <obj_property name="ObjectShortName">InstructionREAD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/InstructionWRITE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionWRITE</obj_property>
+      <obj_property name="ObjectShortName">InstructionWRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/InstructionWREN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionWREN</obj_property>
+      <obj_property name="ObjectShortName">InstructionWREN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/InstructionRDSR" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">InstructionRDSR</obj_property>
+      <obj_property name="ObjectShortName">InstructionRDSR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/WriteEnable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WriteEnable</obj_property>
+      <obj_property name="ObjectShortName">WriteEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/spi_eeprom/WriteActive" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WriteActive</obj_property>
+      <obj_property name="ObjectShortName">WriteActive</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/rd_fifo_rd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_fifo_rd</obj_property>
+      <obj_property name="ObjectShortName">rd_fifo_rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/rd_fifo_wr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_fifo_wr</obj_property>
+      <obj_property name="ObjectShortName">rd_fifo_wr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/rd_fifo_dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_fifo_dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_fifo_dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/spi_rx" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">spi_rx</obj_property>
+      <obj_property name="ObjectShortName">spi_rx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">srl_shr[15:0,7:0]</obj_property>
+      <obj_property name="ObjectShortName">srl_shr[15:0,7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[15,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[14,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[13,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[12,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[11,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[10,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[9,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[8,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[7,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[6,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[5,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[4,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[3,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[2,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[1,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_spi_if/uut/rd_fifo/srl_shr[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0,7:0]</obj_property>
+         <obj_property name="ObjectShortName">srl_shr[0,7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
