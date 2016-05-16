@@ -39,8 +39,6 @@ begin
    end
 end
 
-// SPI shift counter
-reg [2:0] cntr;
 // SCK frequency divider
 wire sck_cntr_en;
 assign sck_cntr_en = ~spi_ss;
@@ -81,12 +79,70 @@ parameter S_ZERO = 4'b0010;   // 1st byte on output ...
 parameter S_LAST = 4'b1001;   // ... 8th byte on output
 parameter S_STOP = 4'b1010;   // Next state is IDLE
 parameter S_WAIT = 4'b1011;   // Not stopped, waiting for data
+// Conditions
+wire start_tx, stop_tx, next_tx, read_rx, spi_load;
+assign start_tx = ( (state == S_IDLE) & ~wr_fifo_empty & wr_fifo_dout[8] );
+assign stop_tx  = (spi_mode[0]) ? ( (state == S_LAST) & spi_sck_rise & spi_tx_stop )
+                                : ( (state == S_STOP) & spi_sck_rise );
+assign next_tx  = (spi_mode[0]) ? ( (state == S_LAST) & spi_sck_rise & ~wr_fifo_empty & ~spi_tx_stop )
+                                : ( (state == S_LAST) & spi_sck_fall & ~wr_fifo_empty & ~spi_tx_stop );
+assign read_rx  = (spi_mode[0]) ? ( (state == S_LAST) & spi_sck_rise )
+                                : ( (state == S_LAST) & spi_sck_fall );
+assign spi_load = (start_tx | next_tx);
+// Next-state logic
 always @ (posedge clk)
 begin
    if(rst)
-      cntr <= 3'b0;
-   else if(spi_shr_sh)
-      cntr <= cntr + 1'b1;
+      state <= S_IDLE;
+   else begin
+      case(state)
+         S_IDLE: begin
+            if( start_tx ) begin
+               if (spi_mode[0] == 1'b0)
+                  state <= S_ZERO;
+               else
+                  state <= S_DATA;
+            end
+         end
+         
+         S_LAST: begin
+            // CPHA == 0
+            if( spi_sck_fall & (spi_mode[0] == 1'b0) ) begin
+               if ( ~wr_fifo_empty & ~spi_tx_stop )
+                  state <= S_ZERO;
+               else if ( wr_fifo_empty & ~spi_tx_stop )
+                  state <= S_WAIT;
+               else if ( spi_tx_stop )
+                  state <= S_STOP;
+            end
+            // CPHA == 1
+            else if( spi_sck_rise & (spi_mode[0] == 1'b1) ) begin
+               if ( ~wr_fifo_empty & ~spi_tx_stop )
+                  state <= S_ZERO;
+               else if ( wr_fifo_empty & ~spi_tx_stop )
+                  state <= S_WAIT;
+               else if ( spi_tx_stop )
+                  state <= S_IDLE;
+            end
+         end
+         
+         S_WAIT: begin
+            if ( ~wr_fifo_empty )
+               state <= S_ZERO;
+         end
+         
+         S_STOP: begin
+            if(spi_sck_rise)
+               state <= S_IDLE;
+         end
+         
+         default: begin
+            if(( spi_sck_fall & (spi_mode[0] == 1'b0) ) |
+               ( spi_sck_rise & (spi_mode[0] == 1'b1) )  )
+               state <= state + 1'b1;
+         end
+      endcase
+   end
 end
 
 wire   spi_load;
