@@ -73,11 +73,11 @@ wr_fifo (
 
 assign wr_fifo_wr = (wr & ~wr_fifo_full);
 assign wr_fifo_rd = (~wr_fifo_empty & spi_load);
-assign wr_fifo_dout_ordered = (spi_endianness) ? {wr_fifo_dout[0], wr_fifo_dout[1],
+assign wr_fifo_dout_ordered = (spi_endianness) ? wr_fifo_dout[7:0]
+                                               : {wr_fifo_dout[0], wr_fifo_dout[1],
                                                   wr_fifo_dout[2], wr_fifo_dout[3],
                                                   wr_fifo_dout[4], wr_fifo_dout[5],
-                                                  wr_fifo_dout[6], wr_fifo_dout[7]}
-                                               : wr_fifo_dout[7:0];
+                                                  wr_fifo_dout[6], wr_fifo_dout[7]};
 
 // Save cmd bits on load
 reg spi_tx_start, spi_tx_stop, spi_rx;
@@ -142,11 +142,11 @@ shr spi_shr (
    .dstr(spi_shr_dout)
 );
 
-assign spi_shr_dout_ordered = (spi_endianness) ? {spi_shr_dout[0], spi_shr_dout[1],
+assign spi_shr_dout_ordered = (spi_endianness) ? spi_shr_dout[7:0]
+                                               : {spi_shr_dout[0], spi_shr_dout[1],
                                                   spi_shr_dout[2], spi_shr_dout[3],
                                                   spi_shr_dout[4], spi_shr_dout[5],
-                                                  spi_shr_dout[6], spi_shr_dout[7]}
-                                               : spi_shr_dout[7:0];
+                                                  spi_shr_dout[6], spi_shr_dout[7]};
 
 // Slave select
 reg spi_ss_reg; // active low
