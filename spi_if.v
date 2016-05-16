@@ -41,6 +41,14 @@ end
 
 // SPI shift counter
 reg [2:0] cntr;
+// State machine
+reg [3:0] state;
+parameter S_IDLE = 4'b0000;   // Idle
+parameter S_DATA = 4'b0001;   // Start transmission
+parameter S_ZERO = 4'b0010;   // 1st byte on output ...
+parameter S_LAST = 4'b1001;   // ... 8th byte on output
+parameter S_STOP = 4'b1010;   // Next state is IDLE
+parameter S_WAIT = 4'b1011;   // Not stopped, waiting for data
 always @ (posedge clk)
 begin
    if(rst)
