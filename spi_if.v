@@ -177,16 +177,14 @@ assign wr_fifo_dout_ordered = (spi_endianness) ? wr_fifo_dout[7:0]
                                                   wr_fifo_dout[6], wr_fifo_dout[7]};
 
 // Save cmd bits on load
-reg spi_tx_start, spi_tx_stop, spi_rx;
+reg spi_tx_stop, spi_rx;
 always @ (posedge clk)
 begin
    if(rst) begin
-      spi_tx_start <= 1'b0;
       spi_tx_stop  <= 1'b0;
       spi_rx       <= 1'b0;
    end
    else if(spi_load) begin
-      spi_tx_start <= wr_fifo_dout[ 8];
       spi_tx_stop  <= wr_fifo_dout[ 9];
       spi_rx       <= wr_fifo_dout[10];
    end
