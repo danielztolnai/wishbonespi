@@ -259,9 +259,9 @@ always @ (posedge clk)
 begin
    if(rst)
       spi_ss_reg <= 1'b1;
-   else if(spi_load & spi_tx_stop)
+   else if(stop_tx)
       spi_ss_reg <= 1'b1;
-   else if(spi_load & spi_tx_start)
+   else if(start_tx)
       spi_ss_reg <= 1'b0;
 end
 
