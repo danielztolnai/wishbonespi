@@ -155,7 +155,6 @@ assign spi_shr_sh = (state >= S_ZERO) & (state < S_LAST) &
 wire wr_fifo_wr, wr_fifo_empty, wr_fifo_full;
 wire [10:0] wr_fifo_dout;
 wire [ 7:0] wr_fifo_dout_ordered;
-wire wr_fifo_rd;
 srl_fifo #(
    .WIDTH(11)
 )
@@ -171,7 +170,6 @@ wr_fifo (
 );
 
 assign wr_fifo_wr = (wr & ~wr_fifo_full);
-assign wr_fifo_rd = (~wr_fifo_empty & spi_load);
 assign wr_fifo_dout_ordered = (spi_endianness) ? wr_fifo_dout[7:0]
                                                : {wr_fifo_dout[0], wr_fifo_dout[1],
                                                   wr_fifo_dout[2], wr_fifo_dout[3],
