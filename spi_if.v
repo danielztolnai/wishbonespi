@@ -194,9 +194,10 @@ end
 
 // Read FIFO
 wire [7:0] spi_shr_dout_ordered;
-wire rd_fifo_rd, rd_fifo_empty, rd_fifo_full;
+wire rd_fifo_empty, rd_fifo_full;
 wire [7:0] rd_fifo_dout;
 wire rd_fifo_wr;
+reg  rd_fifo_rd;
 srl_fifo #(
    .WIDTH(8)
 )
@@ -211,9 +212,15 @@ rd_fifo (
    .full(rd_fifo_full)
 );
 
-assign rd_fifo_rd = (rd & ~rd_fifo_empty);
-assign rd_fifo_wr = (~rd_fifo_full & spi_load & spi_rx);
 assign dout = (rd_fifo_rd) ? {1'b0, rd_fifo_dout} : {1'b1, 8'b0};
+assign rd_fifo_wr = (read_rx & ~rd_fifo_full & spi_rx);
+always @ (posedge clk)
+begin
+   if(rst)
+      rd_fifo_rd <= 1'b0;
+   else
+      rd_fifo_rd <= (rd & ~rd_fifo_empty);
+end
 
 // Acknowledge signal
 reg ack_reg;
