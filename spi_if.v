@@ -21,9 +21,9 @@ module spi_if(
 );
 
 // Preferences
-reg [1:0] spi_mode;
-reg       spi_endianness;
-reg [7:0] spi_baudrate;
+reg [1:0] spi_mode;       // LSB: CPHA, MSB: CPOL
+reg       spi_endianness; // 1'b0: MSB first, 1'b1: LSB first
+reg [7:0] spi_baudrate;   // SCK frequency: (clk freq)/(2*(spi_baudrate+1))
 
 always @ (posedge clk)
 begin
@@ -125,19 +125,17 @@ begin
    if(rst)
       ack_reg <= 1'b0;
    else
-      ack_reg <= wr_fifo_wr | rd | cmd;   
+      ack_reg <= wr_fifo_wr | rd | cmd;
 end
 
 assign ack = ack_reg;
 
 // SPI shift register
-wire spi_shr_sh; // FIXME
 wire [7:0] spi_shr_dout;
 shr spi_shr (
    .clk(clk),
    .rst(rst),
    .din(spi_miso),
-   .sh(spi_shr_sh), // FIXME
    .ld(spi_load),
    .ld_data(wr_fifo_dout_ordered),
    .dout(spi_mosi),
