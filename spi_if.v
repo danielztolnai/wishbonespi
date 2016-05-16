@@ -28,9 +28,9 @@ reg [7:0] spi_baudrate;   // SCK frequency: (clk freq)/(2*(spi_baudrate+1))
 always @ (posedge clk)
 begin
    if(rst) begin
-      spi_mode       <=  2'b0;
-      spi_endianness <=  1'b0;
-      spi_baudrate   <= 12'b0;
+      spi_mode       <= 2'b0;
+      spi_endianness <= 1'b0;
+      spi_baudrate   <= 8'b0;
    end
    else if(cmd) begin
       spi_mode       <= din[ 1:0];
