@@ -36,33 +36,30 @@ reg        cmd_reg;      // Modify settings
 reg        wr_reg;       // Write data
 reg        rd_reg;       // Read data
 
+// Check for stb and cyc rising edge
+wire select;
+assign select = (wb_stb & wb_cyc);
+
+reg [1:0] select_reg;
 always @ (posedge clk)
 begin
-   if(rst) begin
-      wb_din_reg <= 32'b0;
-      wb_ack_reg <=  1'b0;
-      
-      dout_reg   <= 11'b0;
-      cmd_reg    <=  1'b0;
-      wr_reg     <=  1'b0;
-      rd_reg     <=  1'b0;
-   end
-   else begin
-      wb_din_reg <= {23'b0, din};
-      wb_ack_reg <= ack;
-      
-      dout_reg   <= wb_dout[10:0];
-      cmd_reg    <= ((wb_addr ^ ADDR_CMD)  == 32'b0) & (wb_stb & wb_cyc) & ( wb_we);
-      wr_reg     <= ((wb_addr ^ ADDR_DATA) == 32'b0) & (wb_stb & wb_cyc) & ( wb_we);
-      rd_reg     <= ((wb_addr ^ ADDR_DATA) == 32'b0) & (wb_stb & wb_cyc) & (~wb_we);
-   end
+   if(rst)
+      select_reg <= 2'b0;
+   else
+      select_reg <= {select_reg[0], select};
 end
 
-assign wb_din = wb_din_reg;
-assign wb_ack = wb_ack_reg;
-assign dout   = dout_reg;
-assign cmd    = cmd_reg;
-assign wr     = wr_reg;
-assign rd     = rd_reg;
+wire select_rise;
+assign select_rise = ( select_reg == 2'b01 );
+
+wire [31:0] din_ext;
+assign din_ext = {23'b0, din};
+
+assign wb_din = (select & ~wb_we & ack) ? din_ext : 32'bZ;
+assign wb_ack = (select) ? ack : 1'bZ;
+assign dout   = (select &  wb_we) ? wb_dout[10:0] : 11'bZ;
+assign cmd    = ((wb_addr ^ ADDR_CMD)  == 32'b0) & (select_rise) & ( wb_we);
+assign wr     = ((wb_addr ^ ADDR_DATA) == 32'b0) & (select_rise) & ( wb_we);
+assign rd     = ((wb_addr ^ ADDR_DATA) == 32'b0) & (select_rise) & (~wb_we);
 
 endmodule
