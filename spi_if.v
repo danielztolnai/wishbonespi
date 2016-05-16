@@ -145,8 +145,6 @@ begin
    end
 end
 
-wire   spi_load;
-assign spi_load = (cntr == 3'b111);
 
 // Write FIFO
 wire wr_fifo_wr, wr_fifo_empty, wr_fifo_full;
@@ -160,7 +158,7 @@ wr_fifo (
    .clk(clk),
    .rst(rst),
    .wr(wr_fifo_wr),
-   .rd(wr_fifo_rd),
+   .rd(spi_load),
    .din(din),
    .dout(wr_fifo_dout),
    .empty(wr_fifo_empty),
