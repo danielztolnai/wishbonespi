@@ -92,9 +92,11 @@ fuse.log
 isim.cmd
 isim.log
 isim/
-*isim_beh.exe
-*isim_beh.wdb
+*isim_beh*.exe
+*isim_beh*.wdb
 xilinxsim.ini
+*_fpga_editor.log
+*.tfi
 
 # Copyright
 # Microchip SPI EEPROM model (http://ww1.microchip.com/downloads/en/DeviceDoc/25xx020A%20Verilog%20Model.zip)
