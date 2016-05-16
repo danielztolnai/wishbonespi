@@ -210,8 +210,9 @@ rd_fifo (
    .full(rd_fifo_full)
 );
 
-assign dout = (rd_fifo_rd) ? {1'b0, rd_fifo_dout} : {1'b1, 8'b0};
 assign rd_fifo_wr = (read_rx & ~rd_fifo_full & spi_rx);
+assign dout = (~rd_fifo_empty) ? {1'b0, rd_fifo_dout} : {1'b1, 8'b0};
+
 always @ (posedge clk)
 begin
    if(rst)
